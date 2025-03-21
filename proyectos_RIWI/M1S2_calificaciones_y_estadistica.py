@@ -2,6 +2,9 @@
 ## Sistema 
 #ANDREA ARIAS-RIWI
 
+import time
+#Libreria de la cual usare time.sleep para generar un retardo
+
 import re
 # "re" Es una librería de Python que usaré para buscar patrones dentro de cadenas de texto.
 # Moisés, tú nos mencionaste las librerías, pero no las hemos dado. 
@@ -64,6 +67,7 @@ while True:
                 
                         if salir.lower() == 'salir':
                             print("Saliendo del programa...")
+                            time.sleep(2) # retardo de 2 segundos
                             break
         
                     else:
@@ -78,6 +82,7 @@ while True:
                 
                         if salir.lower() == 'salir':
                             print("Saliendo del programa...")
+                            time.sleep(2) # retardo de 2 segundos
                             break
         
         
@@ -135,6 +140,7 @@ while True:
                 
                         if salir.lower() == 'salir':
                             print("Saliendo del programa...")
+                            time.sleep(2) # retardo de 2 segundos
                             break # Salir del ciclo y terminar el programa
 
                         #Si el usuario no termina la sesion, lo lleva al menu
@@ -207,6 +213,7 @@ while True:
                 
                     if salir.lower() == 'salir':
                         print("Saliendo del programa...")
+                        time.sleep(2) # retardo de 2 segundos
                         break
                           
             else:
