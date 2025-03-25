@@ -6,9 +6,7 @@ import time
 #Libreria de la cual usare time.sleep para generar un retardo
 
 import re
-# "re" Es una librería de Python que usaré para buscar patrones dentro de cadenas de texto.
-# Moisés, tú nos mencionaste las librerías, pero no las hemos dado. 
-# Sin embargo, esta en específico la busqué e implementé. 
+# "re" Es una librería de Python que usaré para buscar patrones dentro de cadenas de texto. 
 # De entre las funciones que ofrece, como .match y .search, elegí la que mejor se adapta 
 # sin entorpecer el código.
 # Revisé qué devuelve cada función, ya que algunas devuelven objetos y otras, 
