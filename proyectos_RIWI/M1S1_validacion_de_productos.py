@@ -2,9 +2,6 @@
 # Sistema de validación de productos
 # ANDREA ARIAS-RIWI
 
-import re
-# "re" Es una librería de Python que usaré para buscar patrones dentro de cadenas de texto. 
-
 # Mensaje de bienvenida
 print("=" * 70)
 print("Bienvenidos a la Tienda Tecnológica RIWI".center(70))
@@ -41,14 +38,12 @@ if precio_unitario.isdigit() and cantidad_de_productos.isdigit():
         valor_de_descuento = valor_de_descuento.replace('%', '')
         #.replace si la variable contiene el simbolo % lo reemplaza por espacio en blanco
 
-        #Validar si el descuento ingresado contiene solo números:
-        if re.search(r'^\d+(?:[.,]\d+)?$', valor_de_descuento):
-            # re.search() busca en la variable si contiene un patron definido
-            # el patron que se define asegura que toda la cadena consista únicamente en números,
-            # y permite números decimales al permitir un punto o coma.
+        valor_de_descuento = valor_de_descuento.replace(',', '.')
+        #Se reemplaza las , por . para que float lo interprete como decimal correctamente
 
-            valor_de_descuento = valor_de_descuento.replace(',', '.')
-            #Se reemplaza las , por . para que float lo interprete como decimal correctamente
+        #Validar el descuento ingresado:
+        if valor_de_descuento.isdecimal:
+        #.isdecimal permite el ingreso de porcentajes en decimal 
 
             valor_de_descuento_float = float(valor_de_descuento)
 
