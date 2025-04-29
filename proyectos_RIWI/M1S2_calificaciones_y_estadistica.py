@@ -3,49 +3,46 @@
 #ANDREA ARIAS-RIWI
 
 import time
-#Libreria de la cual usare time.sleep para generar un retardo
+#Libreria de la cual se importa time.sleep para generar un retardo
 
 import re
-# "re" Es una librería de Python que usaré para buscar patrones dentro de cadenas de texto. 
-# De entre las funciones que ofrece, como .match y .search, elegí la que mejor se adapta 
-# sin entorpecer el código.
-# Revisé qué devuelve cada función, ya que algunas devuelven objetos y otras, 
-# como la que usé, devuelven None si no se encuentra el patrón, 
-# y un objeto de coincidencia si lo encuentra.
-# Usé .search porque me permite encontrar la primera coincidencia del patrón 
+# "re" Es una librería de Python que se implementa para buscar patrones dentro de cadenas de texto. 
+# se implementa .search porque permite encontrar la primera coincidencia del patrón 
 # en la cadena sin necesidad de que esté al inicio, lo cual me da mayor flexibilidad 
 # y facilita el flujo del programa.
-# Así, puedo verificar si existe un patrón dentro de un texto sin necesidad de hacer
+# Así, se puede verificar si existe un patrón dentro de un texto sin necesidad de hacer
 # una comprobación manual o iterativa.
-
 
 #Mensaje de bienvenida
 #Con el objetivo de mejorar la experiencia del usuario
-print("=" * 60)
-print("Centro de entrenamiento RIWI".center(60))
-print("=" * 60)
-print("*" * 60)
+print("=" * 66)
+print("Centro de entrenamiento RIWI".center(66))
+print("=" * 66)
+print("*" * 66)
 
-print(" " * 60)
-print("¡Hola Team lider!".center(60))
+print(" " * 66)
+print("¡Hola Team lider!".center(66))
       
 nombre_usuario = input("¿Cómo quieres ser llamadx?: ")
+salir = "sesion iniciada"
     
-while True:
-    print("=" * 60)
-    print("MENÚ PRINCIPAL".center(60))
-    print("=" * 60)
-    print(" " * 60)
+while salir != "salir" :
+    print("=" * 66)
+    print("MENÚ PRINCIPAL".center(66))
+    print("=" * 66)
+    print(" " * 66)
     
     print( nombre_usuario + " tienes habilitado el ingreso de notas del grupo Ciénaga")
     mensaje_opciones= print("ingresa el numero de la opcion a ejecutar: ")
-    print("1. Ingresar una calificacion 2. Ingresar varias calificaciones")
+    print("1 -> Ingresar una calificacion 2 -> Ingresar varias calificaciones")
     servicio_escogido= input()
     
     match servicio_escogido:
         # Paso 1: Solicita al usuario ingresar una calificación numérica
         case "1":
-            print("Ingresa una calificación, debe estar entre 0 y 100: ") 
+            print("Ingresa una calificación, debe estar entre 0 y 100: ")
+            print("*En RIWI se considera aprobado con calificacion de 70*")
+
             calificacion_ingresada =input()
     
             # Validar la calificación numérica 
@@ -53,42 +50,41 @@ while True:
                 #isnumeric() permite evaluar si el contenido de la vaiable son solo numeros
         
                 calificacion_ingresada_float = float(calificacion_ingresada) #conversion de str a float
-                if calificacion_ingresada_float >=0 and calificacion_ingresada_float <=100:
-                    print("En RIWI se considera aprobado con calificacion de 70")  
-          
+                
                 # determinar el estado de aprobación según la calificación
-                    if calificacion_ingresada_float >=70 and calificacion_ingresada_float <=100:
-                        print(f"La calificación del coder es: {calificacion_ingresada_float}".ljust(25) + f" Estado: Aprobado".rjust(25))
-                        
-                        print("Actividad finalizada, si desea cerrar sesión ingrese ' salir ', para regresar al menu, dar enter")
-                        salir = input()
+                if calificacion_ingresada_float >=70 and calificacion_ingresada_float <=100:
+                    print("*" * 66)
+                    print(f"La calificación del coder es: {calificacion_ingresada_float}".ljust(32) + f" Estado: Aprobado".rjust(32))
+                    print("*" * 66)
+                    print()    
+                    print("Actividad finalizada, si desea cerrar sesión ingrese ' salir '")
+                    print("si no, dar enter")
+                    salir = input()
                 
-                        if salir.lower() == 'salir':
-                            print("Saliendo del programa...")
-                            time.sleep(2) # retardo de 2 segundos
-                            break
+                    if salir.lower() == 'salir':
+                        print("Saliendo del programa...")
+                        time.sleep(2) # retardo de 2 segundos
         
-                    else:
-                        print(f"La calificación del coder es: {calificacion_ingresada_float}".ljust(30) + f" Estado: Reprobado".rjust(30))
-                        #.ljust justifica el texto y variable a la izquierda
-                        #.rjust justifica el texto a la derecha
+                elif calificacion_ingresada_float >=0 and calificacion_ingresada_float <=69:
+                    print("*" * 66)
+                    print(f"La calificación del coder es: {calificacion_ingresada_float}".ljust(31) + f" Estado: Reprobado".rjust(31))
+                    #.ljust justifica el texto y variable a la izquierda
+                    #.rjust justifica el texto a la derecha
 
-                        #Pregunta de control para finalizar la sesion, si no, va al menu
-                        print(" " * 60)
-                        print("Actividad finalizada, si desea cerrar sesión ingrese ' salir ', para regresar al menu, dar enter")
-                        salir = input()
+                    #Pregunta de control para finalizar la sesion, si no, va al menu
+                    print("*" * 66)
+                    print() 
+                    print("Actividad finalizada, si desea cerrar sesión ingrese ' salir '")
+                    print("si no, dar enter")
+                    salir = input()
                 
-                        if salir.lower() == 'salir':
-                            print("Saliendo del programa...")
-                            time.sleep(2) # retardo de 2 segundos
-                            break
-        
-        
+                    if salir.lower() == 'salir':
+                        print("Saliendo del programa...")
+                        time.sleep(2) # retardo de 2 segundos
                 else:
                     print("Error: La calificacion debe estar entre 0 y 100")    
-        
             else:
-                print("Error: la calificación no puede contener carácteres")
+                print("Error: la calificación debe estar en el rango de 0 a 100")
         
         case "2":
             
@@ -101,10 +97,11 @@ while True:
             # Validar la calificación numérica (se debe permitir que contenga ' , ' y ' . ' )
             if re.search(r'^(\d+(\.\d+)?)(,\s*\d+(\.\d+)?)*$', calificaciones_ingresadas):
                 # re.search() busca en la variable si contiene un patron definido
-                # el patron que definí asegura que toda la cadena consista únicamente en números y comas,
+                # el patron que se define asegura que toda la cadena consista únicamente en números y comas,
                 # y permite números decimales al permitir un punto seguido de dígitos
                 # Los espacios después de las comas son permitidos gracias a \s*,
                 # que acepta cualquier cantidad de espacios en blanco (incluso ninguno).
+                # Esta validación también puede realizarse con un ciclo for
                 
                 # Divide la cadena por comas y guarda las calificaciones en una lista.
                 lista_calificaciones = calificaciones_ingresadas.split(",")
@@ -127,27 +124,26 @@ while True:
                         # indice esta dentro de corchetes y como una variable
                         # que va incrementando, permitiendo recorrer los elementos de la lista
                         #empieza en cero que corresponde a la posición 1
-
+                        
+                        print(" " * 60)
                         #Si la condicion se cumple, muestra error
                         print(f"Error: La calificación {calificaciones[indice]} no está en el rango de 0 a 100.")
 
                         #Pregunta de control, para dar la opcion de finalizar la sesion
-                        print(" " * 60)
-                        print("Actividad finalizada, si desea cerrar sesión ingrese ' salir ', para regresar al menu, dar enter")
+                        print() 
+                        print("*" * 60)
+                        print("Actividad finalizada, si desea cerrar sesión ingrese ' salir '")
+                        print("si no, dar enter")
                         salir = input()
                 
                         if salir.lower() == 'salir':
                             print("Saliendo del programa...")
                             time.sleep(2) # retardo de 2 segundos
-                            break # Salir del ciclo y terminar el programa
 
                         #Si el usuario no termina la sesion, lo lleva al menu
-                        break  # Terminar el ciclo si una calificación no es válida
-
                     indice += 1 # Incrementa el índice para revisar la siguiente calificación                
 
-                else:       
-                
+                else:                      
                     # Calcular el promedio de las calificaciones
                     promedio = sum(calificaciones) / len(calificaciones)
                     #len se usa para obtener la cantidad de elementos en la lista de calificaciones
@@ -205,16 +201,15 @@ while True:
                     # Mostrar cuántas veces aparece la calificación específica
                     print(f"La calificación {calificacion_especifica} aparece {contador_apariciones} veces en la lista.")
 
-                    print(" " * 60)
-                    print("Actividad finalizada, si desea cerrar sesión ingrese ' salir ', si no, dar enter")
+                    print() 
+                    print("*" * 66)
+                    print("Actividad finalizada, si desea cerrar sesión ingrese ' salir '")
+                    print("si no, dar enter")
                     salir = input()
                 
                     if salir.lower() == 'salir':
                         print("Saliendo del programa...")
-                        time.sleep(2) # retardo de 2 segundos
-                        break
-                          
+                        time.sleep(2) # retardo de 2 segundos                          
             else:
-                print("Las calificaciones no deben contener caracteres diferente a los permitidos")
-                           
+                print("Las calificaciones no deben contener caracteres diferente a los permitidos")                          
 print("Sesión cerrada")
