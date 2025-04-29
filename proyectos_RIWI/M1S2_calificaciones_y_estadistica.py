@@ -25,7 +25,7 @@ print("¡Hola Team lider!".center(66))
       
 nombre_usuario = input("¿Cómo quieres ser llamadx?: ")
 salir = "sesion iniciada"
-    
+
 while salir != "salir" :
     print("=" * 66)
     print("MENÚ PRINCIPAL".center(66))
@@ -140,80 +140,81 @@ while salir != "salir" :
                             print("Saliendo del programa...")
                             time.sleep(2) # retardo de 2 segundos
 
-                        #Si el usuario no termina la sesion, lo lleva al menu
-                    indice += 1 # Incrementa el índice para revisar la siguiente calificación                
+                            #Si el usuario no termina la sesion, lo lleva al menu
+                        indice += 1 # Incrementa el índice para revisar la siguiente calificación                
 
-                else:                      
-                    # Calcular el promedio de las calificaciones recorriendo la lista con for
+                    else:                      
+                        # Calcular el promedio de las calificaciones recorriendo la lista con for
+                        suma_calificaciones = 0
+                        for calificacion1 in calificaciones:
+                            suma_calificaciones += calificacion1
+
+                        promedio= suma_calificaciones/len(lista_calificaciones)
+                        #len se usa para obtener la cantidad de elementos en la lista de calificaciones
+                        # para poder obtener el numero de calificaciones y utilizarlo como divisor
                     
-                    for calificacion1 in lista_calificaciones:
-                        suma_calificaciones += calificacion1
-
-                    promedio= suma_calificaciones/len(lista_calificaciones)
-                    #len se usa para obtener la cantidad de elementos en la lista de calificaciones
-                    # para poder obtener el numero de calificaciones y utilizarlo como divisor
-                
-                    # Mostrar el promedio calculado
-                    print(f"El promedio de las calificaciones es: {promedio:.2f}")
-                
-                    # Paso 3: Utilizar un ciclo while para contar las calificaciones mayores que el valor especificado
-                    valor_comparacion = input("Ingresa un valor para comparar las calificaciones: ")
-                    valor_comparacion_float = float (valor_comparacion)
-                
-                    # Inicializar el contador que llevará la cuenta de las calificaciones mayores
-                    # que el valor de comparación
-                    contador_mayores = 0
-
-                    # Inicializar el índice en 0 para empezar desde el primer elemento de la lista
-                    # de calificaciones
-                    indice = 0
-
-                    # Ciclo que recorrerá toda la lista de calificaciones
-                    while indice < len(calificaciones):
-                        # Verificar si la calificación en la posición actual (índice) es mayor
+                        # Mostrar el promedio calculado
+                        print(f"El promedio de las calificaciones es: {promedio:.2f}")
+                    
+                        # Paso 3: Utilizar un ciclo while para contar las calificaciones mayores que el valor especificado
+                        valor_comparacion = input("Ingresa un valor para comparar las calificaciones: ")
+                        valor_comparacion_float = float (valor_comparacion)
+                    
+                        # Inicializar el contador que llevará la cuenta de las calificaciones mayores
                         # que el valor de comparación
-                        if calificaciones[indice] > valor_comparacion_float:
-                            # Si la condición se cumple, incrementar el contador de calificaciones mayores
-                            contador_mayores += 1
+                        contador_mayores = 0
 
-                        # Avanzar al siguiente índice de la lista para revisar la siguiente calificación
-                        indice += 1
+                        # Inicializar el índice en 0 para empezar desde el primer elemento de la lista
+                        # de calificaciones
+                        indice = 0
 
-                    # Al finalizar el ciclo, 'contador_mayores' tendrá la cantidad total de calificaciones
-                    # mayores que el valor de comparación
-                                
-                    # Paso 4: Mostrar cuántas calificaciones son mayores que el valor especificado
-                    print(f"Hay {contador_mayores} calificaciones mayores que {valor_comparacion}.")
-                
-                    # Paso 4: Contar cuántas veces aparece una calificación específica
-                    calificacion_especifica = input("Ingresa una calificación específica para contar cuántas veces aparece: ")
-                    calificacion_especifica_float = float(calificacion_especifica)
-                
-                    # Inicializar el contador de apariciones
-                    contador_apariciones = 0
+                        # Ciclo que recorrerá toda la lista de calificaciones
+                        while indice < len(calificaciones):
+                            # Verificar si la calificación en la posición actual (índice) es mayor
+                            # que el valor de comparación
+                            if calificaciones[indice] > valor_comparacion_float:
+                                # Si la condición se cumple, incrementar el contador de calificaciones mayores
+                                contador_mayores += 1
 
-                    # Usar un ciclo for para contar las apariciones de la calificación específica
-                    for calificacion in calificaciones:
+                            # Avanzar al siguiente índice de la lista para revisar la siguiente calificación
+                            indice += 1
+
+                        # Al finalizar el ciclo, 'contador_mayores' tendrá la cantidad total de calificaciones
+                        # mayores que el valor de comparación
+                                    
+                        # Paso 4: Mostrar cuántas calificaciones son mayores que el valor especificado
+                        print(f"Hay {contador_mayores} calificaciones mayores que {valor_comparacion}.")
                     
-                        # Si la calificación no es igual a la calificación específica, continuar con la siguiente iteración
-                        if calificacion != calificacion_especifica_float:
-                            continue
-                        
-                        # Aumentar el contador cada vez que encontramos la calificación específica
-                        contador_apariciones += 1
-                                               
-                    # Mostrar cuántas veces aparece la calificación específica
-                    print(f"La calificación {calificacion_especifica} aparece {contador_apariciones} veces en la lista.")
+                        # Paso 4: Contar cuántas veces aparece una calificación específica
+                        calificacion_especifica = input("Ingresa una calificación específica para contar cuántas veces aparece: ")
+                        calificacion_especifica_float = float(calificacion_especifica)
+                    
+                        # Inicializar el contador de apariciones
+                        contador_apariciones = 0
 
-                    print() 
-                    print("*" * 66)
-                    print("Actividad finalizada, si desea cerrar sesión ingrese ' salir '")
-                    print("si no, dar enter")
-                    salir = input()
+                        # Usar un ciclo for para contar las apariciones de la calificación específica
+                        for calificacion in calificaciones:
+                            if calificacion_especifica_float not in calificaciones:
+                                break
+                            # Si la calificación no es igual a la calificación específica, continuar con la siguiente iteración
+                            if calificacion != calificacion_especifica_float:
+                                continue
+                            
+                            # Aumentar el contador cada vez que encontramos la calificación específica
+                            contador_apariciones += 1
+                                                
+                        # Mostrar cuántas veces aparece la calificación específica
+                        print(f"La calificación {calificacion_especifica} aparece {contador_apariciones} veces en la lista.")
+
+                        print() 
+                        print("*" * 66)
+                        print("Actividad finalizada, si desea cerrar sesión ingrese ' salir '")
+                        print("si no, presionar enter")
+                        salir = input()
                 
-                    if salir.lower() == 'salir':
-                        print("Saliendo del programa...")
-                        time.sleep(2) # retardo de 2 segundos                          
+                        if salir.lower() == 'salir':
+                            print("Saliendo del programa...")
+                            time.sleep(2) # retardo de 2 segundos                          
             else:
                 print("Las calificaciones no deben contener caracteres diferente a los permitidos")                          
 print("Sesión cerrada")
