@@ -59,9 +59,9 @@ while salir != "salir" :
                 print()    
                 print("Actividad finalizada, si desea cerrar sesión ingrese ' salir '")
                 print("si no, presionar enter")
-                salir = input()
+                salir = input().lower()
             
-                if salir.lower() == 'salir':
+                if salir == 'salir':
                     print("Saliendo del programa...")
                     time.sleep(2) # retardo de 2 segundos
     
@@ -76,9 +76,9 @@ while salir != "salir" :
                 print() 
                 print("Actividad finalizada, si desea cerrar sesión ingrese ' salir '")
                 print("si no, presionar enter")
-                salir = input()
+                salir = input().lower()
             
-                if salir.lower() == 'salir':
+                if salir == 'salir':
                     print("Saliendo del programa...")
                     time.sleep(2) # retardo de 2 segundos
             else:
@@ -134,9 +134,9 @@ while salir != "salir" :
                     print("*" * 60)
                     print("Actividad finalizada, si desea cerrar sesión ingrese ' salir '")
                     print("si no, dar enter")
-                    salir = input()
+                    salir = input().lower()
             
-                    if salir.lower() == 'salir':
+                    if salir == 'salir':
                         print("Saliendo del programa...")
                         time.sleep(2) # retardo de 2 segundos
 
@@ -212,9 +212,9 @@ while salir != "salir" :
                     print("*" * 66)
                     print("Actividad finalizada, si desea cerrar sesión ingrese ' salir '")
                     print("si no, presionar enter")
-                    salir = input()
+                    salir = input().lower()
             
-                    if salir.lower() == 'salir':
+                    if salir == 'salir':
                         print("Saliendo del programa...")
                         time.sleep(2) # retardo de 2 segundos                          
         else:
