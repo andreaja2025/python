@@ -3,7 +3,7 @@
 #ANDREA ARIAS-RIWI
 
 import time
-#Libreria de la cual se importa time.sleep para generar un retardo
+#Libreria de la cual se implementa time.sleep para generar un retardo
 
 import re
 # "re" Es una librería de Python que se implementa para buscar patrones dentro de cadenas de texto. 
@@ -38,7 +38,7 @@ while salir != "salir" :
     servicio_escogido= input()
     
     match servicio_escogido:
-        # Paso 1: Solicita al usuario ingresar una calificación numérica
+        # Paso 1: Solicita al usuario ingresar una calificación numérica y válida la entrada
         case "1":
             print("Ingresa una calificación, debe estar entre 0 y 100: ")
             print("*En RIWI se considera aprobado con calificacion de 70*")
@@ -47,18 +47,18 @@ while salir != "salir" :
     
             # Validar la calificación numérica 
             if calificacion_ingresada.isnumeric():
-                #isnumeric() permite evaluar si el contenido de la vaiable son solo numeros
+                #isnumeric() permite evaluar si el contenido de la variable contiene solo numeros
         
                 calificacion_ingresada_float = float(calificacion_ingresada) #conversion de str a float
                 
                 # determinar el estado de aprobación según la calificación
                 if calificacion_ingresada_float >=70 and calificacion_ingresada_float <=100:
                     print("*" * 66)
-                    print(f"La calificación del coder es: {calificacion_ingresada_float}".ljust(32) + f" Estado: Aprobado".rjust(32))
+                    print(f"La calificación del coder es: {calificacion_ingresada_float}".ljust(31) + f" Estado: Aprobado".rjust(31))
                     print("*" * 66)
                     print()    
                     print("Actividad finalizada, si desea cerrar sesión ingrese ' salir '")
-                    print("si no, dar enter")
+                    print("si no, presionar enter")
                     salir = input()
                 
                     if salir.lower() == 'salir':
@@ -75,7 +75,7 @@ while salir != "salir" :
                     print("*" * 66)
                     print() 
                     print("Actividad finalizada, si desea cerrar sesión ingrese ' salir '")
-                    print("si no, dar enter")
+                    print("si no, presionar enter")
                     salir = input()
                 
                     if salir.lower() == 'salir':
@@ -84,7 +84,7 @@ while salir != "salir" :
                 else:
                     print("Error: La calificacion debe estar entre 0 y 100")    
             else:
-                print("Error: la calificación debe estar en el rango de 0 a 100")
+                print("Error: la calificación no es válida")
         
         case "2":
             
@@ -144,8 +144,12 @@ while salir != "salir" :
                     indice += 1 # Incrementa el índice para revisar la siguiente calificación                
 
                 else:                      
-                    # Calcular el promedio de las calificaciones
-                    promedio = sum(calificaciones) / len(calificaciones)
+                    # Calcular el promedio de las calificaciones recorriendo la lista con for
+                    
+                    for calificacion1 in lista_calificaciones:
+                        suma_calificaciones += calificacion1
+
+                    promedio= suma_calificaciones/len(lista_calificaciones)
                     #len se usa para obtener la cantidad de elementos en la lista de calificaciones
                     # para poder obtener el numero de calificaciones y utilizarlo como divisor
                 
